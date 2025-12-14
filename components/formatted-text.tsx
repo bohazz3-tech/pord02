@@ -14,6 +14,15 @@ const options: HTMLReactParserOptions = {
 
         if (isRelative(src)) {
           return (
+                         {width && height && (
+               <Image
+                 src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/${src}`}
+                 width={parseInt(width as string, 10)}
+                 height={parseInt(height as string, 10)}
+                 alt={alt}
+                 layout="intrinsic"
+               />
+             )}
              <Image
                src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/${src}`}
                width={width}
