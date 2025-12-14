@@ -58,12 +58,13 @@ const options: HTMLReactParserOptions = {
   },
 }
 
-interface FormattedTextProps {
-  // ... متغيرات أخرى
+interface Props {
+  // ...
   src: string;
-  width: number; // <--- تم التغيير إلى number
-  height: number; // <--- تم التغيير إلى number
+  width: number; // تم التعديل
+  height: number; // تم التعديل
   alt: string;
+  // ...
 }
 
 export function FormattedText({ processed, ...props }: FormattedTextProps) {
