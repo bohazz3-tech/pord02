@@ -63,6 +63,7 @@ export function NodeArticleTeaser({ node, ...props }) {
         <div>
           <Image
             src={absoluteURL(node.field_image.uri.url)}
+            alt={node.field_image.alt || "صورة المقال المصغرة"} 
             width={800}
             height={450}
             layout="intrinsic"
