@@ -7,6 +7,7 @@ export function NodeProperty({ node, viewMode, ...props }: NodeProps) {
     return <NodePropertyList node={node} {...props} />
   }
 
+
   return <NodePropertyGrid node={node} {...props} />
 }
 
