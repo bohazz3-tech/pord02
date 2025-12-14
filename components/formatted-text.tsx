@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { HTMLReactParserOptions, domToReact } from "html-react-parser"
-import { Element } from "domhandler/lib/node"
+// import { Element } from "domhandler/lib/node" // السطر القديم الخاطئ
+import { Element } from "domhandler" // <--- السطر الجديد الصحيح
 import parse from "html-react-parser"
 
 import { isRelative } from "lib/utils/is-relative"
