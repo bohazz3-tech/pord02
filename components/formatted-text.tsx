@@ -10,27 +10,22 @@ const options: HTMLReactParserOptions = {
   replace: (domNode) => {
     if (domNode instanceof Element) {
       if (domNode.name === "img") {
-        const { src, alt, width = "100px", height = "100px" } = domNode.attribs
+        const { src, alt, width, height } = domNode.attribs
 
         if (isRelative(src)) {
-          return (
-                         {width && height && (
-             <Image
-               src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/${src}`}
-               width={width} // الآن width هو number ولن يظهر الخطأ
-               height={height} // الآن height هو number ولن يظهر الخطأ
-               alt={alt}
-               layout="intrinsic"
-             />
+          // قم بتحويل السلاسل النصية (strings) إلى أرقام (numbers) هنا
+          const numericWidth = parseInt(width, 10) || 100;
+          const numericHeight = parseInt(height, 10) || 100;
 
-             )}
-             <Image
-               src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/${src}`}
-               width={width}
-               height={height}
-               alt={alt}
-               layout="intrinsic"
-             />
+          // استخدم القيم الرقمية المحولة في مكون Image
+          return (
+            <Image
+              src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/${src}`}
+              width={numericWidth}
+              height={numericHeight}
+              alt={alt}
+              layout="intrinsic"
+            />
           )
         }
       }
@@ -58,14 +53,13 @@ const options: HTMLReactParserOptions = {
   },
 }
 
-interface Props {
-  // ...
-  src: string;
-  width: number; // تم التعديل
-  height: number; // تم التعديل
-  alt: string;
-  // ...
+// يبدو أن هذا التعريف (interface FormattedTextProps) هو ما يستخدم في الدالة أدناه
+// تأكد من أنه معرف بشكل صحيح لاستقبال "processed"
+interface FormattedTextProps {
+  processed: string;
+  // أضف أي props أخرى يتم تمريرها هنا إذا لزم الأمر
 }
+
 
 export function FormattedText({ processed, ...props }: FormattedTextProps) {
   return (
