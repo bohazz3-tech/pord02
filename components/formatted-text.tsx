@@ -57,10 +57,12 @@ const options: HTMLReactParserOptions = {
   },
 }
 
-interface FormattedTextProps extends React.HTMLAttributes<HTMLDivElement> {
-  format?: string
-  processed: string
-  value?: string
+interface FormattedTextProps {
+  // ... متغيرات أخرى
+  src: string;
+  width: number; // <--- تم التغيير إلى number
+  height: number; // <--- تم التغيير إلى number
+  alt: string;
 }
 
 export function FormattedText({ processed, ...props }: FormattedTextProps) {
