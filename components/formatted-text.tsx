@@ -14,14 +14,14 @@ const options: HTMLReactParserOptions = {
 
         if (isRelative(src)) {
           return (
-            <Image
-              src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/${src}`}
-              width={`${width}px`}
-              height={`${height}px`}
-              alt={alt}
-              layout="intrinsic"
-              objectFit="cover"
-            />
+             <Image
+               src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/${src}`}
+               width={width}
+               height={height}
+               alt={alt}
+               layout="intrinsic"
+             />
+
           )
         }
       }
