@@ -54,6 +54,8 @@ const options: HTMLReactParserOptions = {
 
 interface FormattedTextProps {
   processed: string;
+  // أضف إشارة هنا لقبول أي خاصيات HTML قياسية أخرى مثل className
+  [key: string]: any; 
 }
 
 export function FormattedText({ processed, ...props }: FormattedTextProps) {
