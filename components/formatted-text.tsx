@@ -21,7 +21,6 @@ const options: HTMLReactParserOptions = {
                alt={alt}
                layout="intrinsic"
              />
-
           )
         }
       }
