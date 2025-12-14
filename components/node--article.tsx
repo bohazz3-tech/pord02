@@ -38,6 +38,7 @@ export function NodeArticleFull({ node, ...props }) {
           {node.field_image?.uri && (
             <Image
               src={absoluteURL(node.field_image.uri.url)}
+              alt={node.field_image.alt || "Default alt text"}  
               width={1200}
               height={600}
               layout="intrinsic"
