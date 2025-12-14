@@ -13,11 +13,10 @@ const options: HTMLReactParserOptions = {
         const { src, alt, width, height } = domNode.attribs
 
         if (isRelative(src)) {
-          // قم بتحويل السلاسل النصية (strings) إلى أرقام (numbers) هنا
+          // التحويل الصحيح للنوع (Type Conversion)
           const numericWidth = parseInt(width, 10) || 100;
           const numericHeight = parseInt(height, 10) || 100;
 
-          // استخدم القيم الرقمية المحولة في مكون Image
           return (
             <Image
               src={`${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/${src}`}
@@ -35,7 +34,7 @@ const options: HTMLReactParserOptions = {
 
         if (href && isRelative(href)) {
           return (
-            <Link href={href} passHref>
+            <Link href={href} passFoto>
               <a className={className}>{domToReact(domNode.children)}</a>
             </Link>
           )
@@ -53,13 +52,9 @@ const options: HTMLReactParserOptions = {
   },
 }
 
-// يبدو أن هذا التعريف (interface FormattedTextProps) هو ما يستخدم في الدالة أدناه
-// تأكد من أنه معرف بشكل صحيح لاستقبال "processed"
 interface FormattedTextProps {
   processed: string;
-  // أضف أي props أخرى يتم تمريرها هنا إذا لزم الأمر
 }
-
 
 export function FormattedText({ processed, ...props }: FormattedTextProps) {
   return (
